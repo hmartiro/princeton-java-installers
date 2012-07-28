@@ -16,13 +16,13 @@ REM  Embeddedfile: algs4.ps1
 REM  Embeddedfile: unzip.exe
 REM  QBFC Project Options End
 ECHO ON
+ECHO OFF
 @ECHO OFF
 :: ***************************************************
 :: launcher.bat
 :: Hayk Martirosyan
 :: ------------------
-:: Launches the Algs4 automatic installer.
-:: Last edited: November 2, 2011
+:: Launches the Algs4 automatic installer
 :: ***************************************************
 
 echo Launching the automatic installer algs4.exe...

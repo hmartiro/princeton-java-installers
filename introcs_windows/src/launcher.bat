@@ -16,13 +16,13 @@ REM  Embeddedfile: introcs.ps1
 REM  Embeddedfile: unzip.exe
 REM  QBFC Project Options End
 ECHO ON
+ECHO OFF
 @ECHO OFF
 :: ***************************************************
 :: launcher.bat
 :: Hayk Martirosyan
 :: ------------------
-:: Launches the IntroCS automatic installer.
-:: Last edited: November 2, 2011
+:: Launches the IntroCS automatic installer
 :: ***************************************************
 
 echo Launching the automatic installer introcs.exe...
