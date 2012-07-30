@@ -19,7 +19,7 @@ mv ~/log.txt ~/${name}/log.txt
 
 # Sets the owner of everything back to the original,
 # since this script runs under root.
-chown -R ${1} ~/${name}
-chown -R ${1} /Applications/DrJava.app
-chown -R ${1} ~/.drjava
-chown -R ${1} ~/Library/Java/Extensions
+chown -R ${1} ~/${name} 2> /dev/null
+chown -R ${1} /Applications/DrJava.app 2> /dev/null
+chown -R ${1} ~/.drjava 2> /dev/null
+chown -R ${1} ~/Library/Java/Extensions 2> /dev/null

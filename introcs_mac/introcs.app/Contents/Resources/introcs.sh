@@ -4,12 +4,12 @@
 # introcs.sh                                     
 # Hayk Martirosyan  
 # -------------
-# Mac OS X installation script for introcs.app     
-# Last edited: December 4, 2011
+# Mac OS X installation script for introcs.app 
 # ************************************************
 
 # The only difference between algs4 and introcs installations are these
-# three variables, the commenting out of Java3D, and renumbering steps
+# three variables, the commenting out of Java3D, the inclusion of 
+# algs4.jar and renumbering steps
 name=introcs
 url_base=http://introcs.cs.princeton.edu/java/mac
 testFile=TestIntroCS
@@ -62,7 +62,7 @@ green '#                                                                  #'
 green '####################################################################'
 green '#                                                                  #'
 green '# Java Programming Environment Setup                               #'
-green '# for Apple OS X - v2.0                                            #'
+green '# for Apple OS X - v3.0                                            #'
 green '# Princeton University - Hayk Martirosyan                          #'
 green '#                                                                  #'
 green '####################################################################'
@@ -78,17 +78,43 @@ myDir="$( cd "$( dirname "$0" )" && pwd )"
 # Handy to supress output
 null="/dev/null"
 
+function logAndExit {
+	
+	print
+	red 'NOTE: If there were any error messages during this setup, check the'
+	red 'troubleshooting section on the website or ask for help.'
+	
+	print
+	print 'A log file of this installation is saved at'
+	blue "${install}/log.txt"
+	
+	print
+	green 'You should now close this window.'
+	exit
+}
+
 function download {
 	print
 	print "Downloading ${3} from"
 	blue "${1}"
 	print "to"
 	blue "${2}"
-	curl -sL "${1}" > "${2}"
+	downloadQuiet "${1}" "${2}"
 }
 
 function downloadQuiet {
-	curl -sL "${1}" > "${2}"
+
+
+	if curl -sL "${1}" > "${2}" 2> ${null}; then
+		return 1
+	else
+		print
+		red "Cannot download ${1}"
+		red "Make sure you have a working internet connection"
+		red "and rerun this installation."
+	
+		logAndExit
+	fi
 }
 
 function extractAndDelete {
@@ -139,7 +165,7 @@ createFolderIfNeeded "${local}" "user local"
 bin="${local}/bin"
 createFolderIfNeeded "$bin" "bin"
 
-sleep 4
+sleep 2
 
 ### BEGINNING OF ACTUAL INSTALLATION #####################################
 
@@ -189,7 +215,6 @@ print
 red '#### Step 3 - Textbook Libraries ##################################'
 
 stdlib="${install}/stdlib.jar"
-algs4="${install}/algs4.jar"
 
 stdlibURL="http://introcs.cs.princeton.edu/java/stdlib/stdlib.jar"
 download "$stdlibURL" "$stdlib" "stdlib.jar"
@@ -200,16 +225,6 @@ blue "${stdlib}"
 print "to"
 blue "${extensions}"
 cp ${stdlib} ${extensions}
-
-algs4URL="http://algs4.cs.princeton.edu/code/algs4.jar"
-download "$algs4URL" "$algs4" "algs4.jar"
-
-print
-print "Copying library from"
-blue "${algs4}"
-print "to"
-blue "${extensions}"
-cp ${algs4} ${extensions}
 
 print
 red '#### Step 4 - Checkstyle ##########################################'
@@ -237,8 +252,6 @@ print "Granting executable permission to"
 blue "${checkstyleCMD}"
 chmod +x "$checkstyleCMD"
 
-#replaceInFile "${checkstyleCMD}" "INSTALL_DIR" "$install"
-
 print
 red '#### Step 5 - Findbugs ############################################'
 
@@ -264,8 +277,6 @@ print
 print "Granting executable permission to"
 blue "${findbugsCMD}"
 chmod +x "$findbugsCMD"
-
-#replaceInFile "${findbugsCMD}" "INSTALL_DIR" "$install"
 
 print
 red '#### Step 6 - DrJava ##############################################'
@@ -334,13 +345,4 @@ green 'If you saw the bullseye and textbook graphic, the installation'
 green 'was successful and you are ready to start programming in Java.'
 green 'Continue with the introductory tutorial on the website.'
 
-print
-red 'NOTE: If there were any error messages during this setup, check the'
-red 'troubleshooting section on the website or ask for help.'
-
-print
-print 'A log file of this installation is saved at'
-blue "${install}/log.txt"
-
-print
-green 'You should now close this window.'
+logAndExit
