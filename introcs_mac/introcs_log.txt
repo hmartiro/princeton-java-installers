@@ -12,7 +12,7 @@
 ####################################################################
 #                                                                  #
 # Java Programming Environment Setup                               #
-# for Apple OS X - v2.0                                            #
+# for Apple OS X - v3.0                                            #
 # Princeton University - Hayk Martirosyan                          #
 #                                                                  #
 ####################################################################
@@ -20,7 +20,7 @@
 Initializing functions and beginning installation...
 
 Creating installation directory at
-/Users/amailyan/introcs
+/Users/username/introcs
 
 #### Step 1 - Java #################################################
 
@@ -29,62 +29,52 @@ Java is already installed.
 #### Step 2 - Java3D and Java OpenGL ###############################
 
 Creating Java library directory at
-/Users/amailyan/Library/Java
+/Users/username/Library/Java
 
 Creating Java extensions directory at
-/Users/amailyan/Library/Java/Extensions
+/Users/username/Library/Java/Extensions
 
 Downloading Java3D from
 http://introcs.cs.princeton.edu/java/mac/java3d.zip
 to
-/Users/amailyan/introcs/java3d.zip
+/Users/username/introcs/java3d.zip
 
 Extracting zip archive in place at
-/Users/amailyan/introcs/java3d.zip
+/Users/username/introcs/java3d.zip
 and deleting .zip file.
 
 Copying all libraries in
-/Users/amailyan/introcs/java3d
+/Users/username/introcs/java3d
 to
-/Users/amailyan/Library/Java/Extensions
+/Users/username/Library/Java/Extensions
 
 #### Step 3 - Textbook Libraries ##################################
 
 Downloading stdlib.jar from
 http://introcs.cs.princeton.edu/java/stdlib/stdlib.jar
 to
-/Users/amailyan/introcs/stdlib.jar
+/Users/username/introcs/stdlib.jar
 
 Copying library from
-/Users/amailyan/introcs/stdlib.jar
+/Users/username/introcs/stdlib.jar
 to
-/Users/amailyan/Library/Java/Extensions
-
-Downloading algs4.jar from
-http://algs4.cs.princeton.edu/code/algs4.jar
-to
-/Users/amailyan/introcs/algs4.jar
-
-Copying library from
-/Users/amailyan/introcs/algs4.jar
-to
-/Users/amailyan/Library/Java/Extensions
+/Users/username/Library/Java/Extensions
 
 #### Step 4 - Checkstyle ##########################################
 
 Downloading checkstyle from
 http://introcs.cs.princeton.edu/java/mac/checkstyle.zip
 to
-/Users/amailyan/introcs/checkstyle.zip
+/Users/username/introcs/checkstyle.zip
 
 Extracting zip archive in place at
-/Users/amailyan/introcs/checkstyle.zip
+/Users/username/introcs/checkstyle.zip
 and deleting .zip file.
 
 Downloading checkstyle configuration file from
 http://introcs.cs.princeton.edu/java/mac/checkstyle.xml
 to
-/Users/amailyan/introcs/checkstyle-5.4/checkstyle.xml
+/Users/username/introcs/checkstyle-5.4/checkstyle.xml
 
 Downloading checkstyle execution script from
 http://introcs.cs.princeton.edu/java/mac/checkstyle
@@ -99,16 +89,16 @@ Granting executable permission to
 Downloading findbugs from
 http://introcs.cs.princeton.edu/java/mac/findbugs.zip
 to
-/Users/amailyan/introcs/findbugs.zip
+/Users/username/introcs/findbugs.zip
 
 Extracting zip archive in place at
-/Users/amailyan/introcs/findbugs.zip
+/Users/username/introcs/findbugs.zip
 and deleting .zip file.
 
 Downloading findbugs configuration file from
 http://introcs.cs.princeton.edu/java/mac/findbugs.xml
 to
-/Users/amailyan/introcs/findbugs-1.3.9/findbugs.xml
+/Users/username/introcs/findbugs-1.3.9/findbugs.xml
 
 Downloading findbugs execution script from
 http://introcs.cs.princeton.edu/java/mac/findbugs
@@ -131,14 +121,14 @@ Extracting DrJava into the Applications directory
 Downloading DrJava configuration file from
 http://introcs.cs.princeton.edu/java/mac/drjava-config.txt
 to
-/Users/amailyan/.drjava
+/Users/username/.drjava
 
 Replacing text in file
-/Users/amailyan/.drjava
+/Users/username/.drjava
 from
 INSTALL_DIR
 to
-/Users/amailyan/introcs
+/Users/username/introcs
 
 Creating a shortcut to DrJava on the desktop...
 
@@ -161,7 +151,7 @@ NOTE: If there were any error messages during this setup, check the
 troubleshooting section on the website or ask for help.
 
 A log file of this installation is saved at
-/Users/amailyan/introcs/log.txt
+/Users/username/introcs/log.txt
 
 You should now close this window.
 

@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# *************************************************
+# checkstyle.sh
+# Hayk Martirosyan
+# -------------------
+# Easy-to-understand wrapper for using checkstyle.
+# *************************************************
+
+# This must match the unzipped folder name of checkstyle
+CHECKSTYLE=checkstyle-?.?
+
+# This must match the install directory
+INSTALL=~/introcs
+
+# This is the bin directory
+BIN=bin
+
+# Sets the paths to the checkstyle jar and xml files
+jar=${INSTALL}/${CHECKSTYLE}/${CHECKSTYLE}-all.jar
+xml=${INSTALL}/${CHECKSTYLE}/checkstyle.xml
+
+# If there are no arguments
+if [ ! -n "$1" ]; then
+	echo 'Specify .java files as arguments.'
+	echo "Usage: 'checkstyle Test.java'"
+	exit
+fi
+
+# If the first argument is a .java file that exists, runs checkstyle
+if [ "${1##*.}" = "java" ]; then
+	if [ -e "$1" ]; then
+		echo "Running checkstyle on $*:"
+		java -jar ${jar} -c ${xml} $*
+	else
+		echo "File not found! Make sure you are specifying the path correctly."
+		echo "The filename is case sensitive."
+	fi
+else
+	echo "Checkstyle needs a .java file as an argument!"
+	echo "The filename is case sensitive."
+fi
