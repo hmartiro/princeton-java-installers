@@ -165,7 +165,10 @@ createFolderIfNeeded "${local}" "user local"
 bin="${local}/bin"
 createFolderIfNeeded "$bin" "bin"
 
-sleep 2
+sleep 1
+
+# Sends an email to count usage
+python ${myDir}/counter.py 2> ${null}
 
 ### BEGINNING OF ACTUAL INSTALLATION #####################################
 
