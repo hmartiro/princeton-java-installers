@@ -16,7 +16,6 @@ REM  Embeddedfile: algs4.ps1
 REM  Embeddedfile: unzip.exe
 REM  QBFC Project Options End
 ECHO ON
-ECHO OFF
 @ECHO OFF
 :: ***************************************************
 :: launcher.bat
