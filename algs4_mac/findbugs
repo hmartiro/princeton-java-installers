@@ -16,10 +16,16 @@ INSTALL=~/algs4
 # This is the bin directory
 BIN=bin
 
-# Sets the paths to the findbugs jar and xml files
-jar=${INSTALL}/${FINDBUGS}/lib/findbugs.jar
-xml=${INSTALL}/${FINDBUGS}/findbugs.xml
-aux=${INSTALL}/stdlib.jar:${INSTALL}/algs4.jar
+# Sets the paths to arrays of matching checkstyle jar and xml files
+jar=(${INSTALL}/${FINDBUGS}/lib/findbugs.jar)
+xml=(${INSTALL}/${FINDBUGS}/findbugs.xml)
+
+# Extracts the latest version of each file from the array
+jar=${jar[${#jar[@]}-1]}
+xml=${xml[${#xml[@]}-1]}
+
+# Sets the path to the auxiliary libraries
+aux=(${INSTALL}/stdlib.jar:${INSTALL}/algs4.jar)
 
 # If there are no arguments
 if [ ! -n "$1" ]; then
@@ -32,7 +38,7 @@ fi
 if [ "${1##*.}" = "class" ]; then
 	if [ -e "$1" ]; then
 		echo "Running findbugs on $*:"
-		java -jar ${jar} -textui -longBugCodes -exclude ${xml} -auxclasspath ${aux} $*
+		java -jar "${jar}" -textui -longBugCodes -exclude "${xml}" -auxclasspath "${aux}" $*
 	else
 		echo "File not found! Make sure you are specifying the path correctly."
 		echo "The filename is case sensitive."
@@ -44,7 +50,7 @@ fi
 if [ "${1##*.}" = "jar" ]; then
 	if [ -e "$1" ]; then
 		echo "Running findbugs on $*:"
-		java -jar ${jar} -textui -longBugCodes -exclude ${xml} -auxclasspath ${aux} $*
+		java -jar "${jar}" -textui -longBugCodes -exclude "${xml}" -auxclasspath "${aux}" $*
 	else
 		echo "File not found! Make sure you are specifying the path correctly."
 		echo "The filename is case sensitive."
