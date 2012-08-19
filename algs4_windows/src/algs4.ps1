@@ -361,9 +361,11 @@ download "$findbugsPS1URL" "$findbugsPS1" "findbugs wrapper script"
 
 addToPath "$bin"
 
+# BUGFIX: Apparently, the first time you run findbugs, it makes a registry change, so you need to be admin..
+# This is an attempt to run it in the installer so that the registry key is made.
 ''
 'Adding findbugs to registry...'
-$findbugsCMD | Out-Null
+java -jar "${findbugs}\lib\findbugs.jar" -textui -longBugCodes -exclude "$findbugsXML" "nonsense" 2>1 $null
 
 ''
 red '#### Step 6 - DrJava ###############################################'
@@ -372,7 +374,7 @@ $drjava = "$install" + "\drjava.jar"
 $drjavaURL = "$url_base" + "drjava.jar"
 download "$drjavaURL" "$drjava" "DrJava"
 
-$drjavaConfig = "$home_dir" + "\.drjava"
+$drjavaConfig = "$home_dir" + '\' + '.drjava'
 $drjavaConfigURL = "$url_base" + "drjava-config.txt"
 download "$drjavaConfigURL" "$drjavaConfig" "DrJava configuration file"
 
