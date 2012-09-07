@@ -175,7 +175,7 @@ python ${myDir}/counter.py 2> ${null}
 print
 red '#### Step 1 - Java #################################################'
 
-if which -s java ; then
+if /usr/bin/which -s java ; then
 	print
 	print 'Java is already installed.'
 else
