@@ -271,6 +271,19 @@ $javaBin = "$java" + "\bin"
 addToPath "$javaBin"
 addToSystemPath "$javaBin"
 
+# Downloading java[c] wrappers (9/11/2012)
+$javaWrapper  = "java-" + "$install_directory" + ".bat"
+$javaWrapperFile = "$bin" + "\" + "$javaWrapper"
+$javaWrapperURL = "$url_base" + "$javaWrapper"
+download "$javaWrapperURL" "$javaWrapperFile" "$javaWrapper"
+
+$javacWrapper = "javac-" + "$install_directory" + ".bat"
+$javacWrapperFile = "$bin" + "\" + "$javacWrapper"
+$javacWrapperURL = "$url_base" + "$javacWrapper"
+download "$javacWrapperURL" "$javacWrapperFile" "$javacWrapper"
+
+addToPath "$bin"
+
 <#''
 red '#### Step 2 - Java3D ###############################################'
 
@@ -304,8 +317,8 @@ download "$stdlibURL" "$stdlib" "stdlib.jar"
 $algs4URL = "http://algs4.cs.princeton.edu/code/algs4.jar";
 download "$algs4URL" "$algs4" "algs4.jar"
 
-addToClasspath "$stdlib"
-addToClasspath "$algs4"
+#addToClasspath "$stdlib"
+#addToClasspath "$algs4"
 
 ''
 red '#### Step 3 - Checkstyle ###########################################'

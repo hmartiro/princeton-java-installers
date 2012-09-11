@@ -6,7 +6,7 @@
 # ************************************************
 
 # The only difference between algs4 and introcs installations are these
-# three variables, the commenting out of Java3D and algs4,jar, and renumbering steps
+# three variables, the commenting out of Java3D and algs4.jar, and renumbering steps
 $install_directory = "introcs"
 $url_base = "http://introcs.cs.princeton.edu/java/windows/"
 $testFile = "TestIntroCS"
@@ -271,6 +271,19 @@ $javaBin = "$java" + "\bin"
 addToPath "$javaBin"
 addToSystemPath "$javaBin"
 
+# Downloading java[c] wrappers (9/11/2012)
+$javaWrapper  = "java-" + "$install_directory" + ".bat"
+$javaWrapperFile = "$bin" + "\" + "$javaWrapper"
+$javaWrapperURL = "$url_base" + "$javaWrapper"
+download "$javaWrapperURL" "$javaWrapperFile" "$javaWrapper"
+
+$javacWrapper = "javac-" + "$install_directory" + ".bat"
+$javacWrapperFile = "$bin" + "\" + "$javacWrapper"
+$javacWrapperURL = "$url_base" + "$javacWrapper"
+download "$javacWrapperURL" "$javacWrapperFile" "$javacWrapper"
+
+addToPath "$bin"
+
 ''
 red '#### Step 2 - Java3D ###############################################'
 
@@ -288,9 +301,9 @@ addToPath "$j3dBin"
 $vecmath  = "$j3d" + "\lib\ext\vecmath.jar";
 $j3dcore  = "$j3d" + "\lib\ext\j3dcore.jar";
 $j3dutils = "$j3d" + "\lib\ext\j3dutils.jar";
-addToClasspath "$vecmath"
-addToClasspath "$j3dcore"
-addToClasspath "$j3dutils"
+#addToClasspath "$vecmath"
+#addToClasspath "$j3dcore"
+#addToClasspath "$j3dutils"
 
 ''
 red '#### Step 3 - Textbook Libraries ###################################'
@@ -304,7 +317,7 @@ download "$stdlibURL" "$stdlib" "stdlib.jar"
 # $algs4URL = "http://algs4.cs.princeton.edu/code/algs4.jar";
 # download "$algs4URL" "$algs4" "algs4.jar"
 
-addToClasspath "$stdlib"
+# addToClasspath "$stdlib"
 # addToClasspath "$algs4"
 
 ''
