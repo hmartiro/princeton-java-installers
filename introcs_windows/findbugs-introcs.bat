@@ -1,13 +1,13 @@
 @echo off
 
 :: ***************************************************
-:: findbugs.bat (introcs)
+:: findbugs-introcs.bat
 :: Hayk Martirosyan
 :: ------------------
-:: Launcher script for findbugs.ps1.
+:: Launcher script for findbugs-introcs.ps1.
 :: ***************************************************
 
-set SCRIPT=. '%~dp0\findbugs.ps1'
+set SCRIPT=. '%~dp0\findbugs-introcs.ps1'
 set PS=%WINDIR%\System32\WindowsPowershell\v1.0\PowerShell.exe
 
 :: Bugfix: escaping $ from arguments

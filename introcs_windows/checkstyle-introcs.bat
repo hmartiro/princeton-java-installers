@@ -1,21 +1,17 @@
 @echo off
 
 :: ***************************************************
-:: findbugs.bat (algs4)
+:: checkstyle-introcs.bat
 :: Hayk Martirosyan
 :: ------------------
-:: Launcher script for findbugs.ps1.
+:: Launcher script for checkstyle-introcs.ps1.
 :: ***************************************************
 
-set SCRIPT=. '%~dp0\findbugs.ps1'
+set SCRIPT=. '%~dp0\checkstyle-introcs.ps1'
 set PS=%WINDIR%\System32\WindowsPowershell\v1.0\PowerShell.exe
 
-:: Bugfix: escaping $ from arguments
-set ARGS=%*
-set ARGS=%ARGS:$=`$%
-
 if exist "%PS%" (
-"%PS%" -ExecutionPolicy Unrestricted -NoProfile -Command "%SCRIPT%" %ARGS%
+"%PS%" -ExecutionPolicy Unrestricted -NoProfile -Command "%SCRIPT%" %*
 ) else (
 echo You do not have Microsoft PowerShell installed.
 echo Please run Windows Update.

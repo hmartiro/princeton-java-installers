@@ -9,4 +9,4 @@
 
 set install=%USERPROFILE%\algs4
 
-java -cp "%install%\stdlib.jar;%install%\algs4.jar" %*
+java -cp "%install%\stdlib.jar;%install%\algs4.jar;." %*

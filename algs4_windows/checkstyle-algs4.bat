@@ -1,13 +1,13 @@
 @echo off
 
 :: ***************************************************
-:: checkstyle.bat (algs4)
+:: checkstyle-algs4.bat
 :: Hayk Martirosyan
 :: ------------------
-:: Launcher script for checkstyle.ps1.
+:: Launcher script for checkstyle-algs4.ps1.
 :: ***************************************************
 
-set SCRIPT=. '%~dp0\checkstyle.ps1'
+set SCRIPT=. '%~dp0\checkstyle-algs4.ps1'
 set PS=%WINDIR%\System32\WindowsPowershell\v1.0\PowerShell.exe
 
 if exist "%PS%" (
