@@ -43,7 +43,7 @@ green '#                                                                  #'
 green '####################################################################'
 green '#                                                                  #'
 green '# Java Programming Environment Setup                               #'
-green '# for Microsoft Windows - v3.0                                     #'
+green '# for Microsoft Windows - v3.2                                     #'
 green '# Princeton University - Hayk Martirosyan                          #'
 green '#                                                                  #'
 green '####################################################################'
@@ -59,12 +59,9 @@ try {
     $SMTP = New-Object Net.Mail.SmtpClient("smtp.gmail.com")
     $SMTP.Port = 587
     $SMTP.EnableSsl = $true
-    $SMTP.Credentials = New-Object System.Net.NetworkCredential("princeton.java.installers", "princeton java installers")
+    $SMTP.Credentials = New-Object System.Net.NetworkCredential("princeton.java.installers", "qERb32dbo3Fo")
     $SMTP.Send($target, $target, $subject, "")
-} catch { 
-''
-'Could not connect to send counter.'
-}
+} catch { }
 
 ### ENVIRONMENT VARIABLE FUNCTIONS  ########################################
 
