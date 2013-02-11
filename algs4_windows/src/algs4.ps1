@@ -44,7 +44,7 @@ green '#                                                                  #'
 green '####################################################################'
 green '#                                                                  #'
 green '# Java Programming Environment Setup                               #'
-green '# for Microsoft Windows - v3.2                                     #'
+green '# for Microsoft Windows - v3.5                                     #'
 green '# Princeton University - Hayk Martirosyan                          #'
 green '#                                                                  #'
 green '####################################################################'
@@ -317,7 +317,7 @@ $checkstyleCMD = "$bin" + "\checkstyle-" + ${install_directory} + ".bat"
 $checkstyleCMDURL = "$url_base" + "checkstyle-" + ${install_directory} + ".bat"
 download "$checkstyleCMDURL" "$checkstyleCMD" "checkstyle execution script"
 
-$checkstylePS1 = "$bin" + "\checkstyle-" + ${install_directory} + ".bat"
+$checkstylePS1 = "$bin" + "\checkstyle-" + ${install_directory} + ".ps1"
 $checkstylePS1URL = "$url_base" + "checkstyle-" + ${install_directory} + ".ps1"
 download "$checkstylePS1URL" "$checkstylePS1" "checkstyle wrapper script"
 
