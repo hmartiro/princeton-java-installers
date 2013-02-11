@@ -8,7 +8,7 @@ Anatomy of the installation scripts:
   * Windows:
 	* introcs.exe is made from four files: a core PowerShell script, a launcher batch file, an icon, and an unzip utility
 	* The core script, introcs.ps1 (423 lines), is written in PowerShell, a .NET scripting language which is very simple to use:  http://ss64.com/ps/. A free IDE is included with Windows (Windows PowerShell ISE).
-	* The launcher script launcher.bat (10-15 lines) serves to execute the PowerShell script, and provides a helpful error message if it can't find PowerShell. A program called Quick Batch File Compiler is used to turn launcher.bat into an executable (introcs.exe) that bundles the PowerShell script, the introcs icon, and an unzip utility unzip.exe.
+	* The launcher script launcher.bat (10-15 lines) serves to execute the PowerShell script, and provides a helpful error message if it can't find PowerShell. A small utility called [Quick Batch File Compiler](http://www.abyssmedia.com/quickbfc/) is used to turn launcher.bat into an executable (introcs.exe) that bundles the PowerShell script, the introcs icon, and an unzip utility unzip.exe.
 	* To compile introcs.exe, open QuickBFC, load the batch script, add the icon and unzip.exe in the embedded files, and hit build. The embedded file is accessed in the PowerShell script with the environment variable %MYFILES%, which QuickBFC creates.
 
   * OS X:
