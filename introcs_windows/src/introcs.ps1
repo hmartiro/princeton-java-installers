@@ -7,7 +7,7 @@
 
 # The only difference between algs4 and introcs installations are these
 # three variables, the commenting out of Java3D and algs4.jar, and renumbering steps
-$install_directory = "introcs"
+$name = "introcs"
 $url_base = "http://introcs.cs.princeton.edu/java/windows/"
 $testFile = "TestIntroCS"
 
@@ -21,6 +21,7 @@ function blue   { write-host $args -foregroundcolor "blue"  }
 
 # Creating the install directory
 $home_dir = "$env:userprofile"
+$install_directory = "$name"
 $install = "$home_dir" + "\" + "$install_directory"
 
 # Starting the log file recording
@@ -84,17 +85,6 @@ function getProcessEnv ($var) {
 
 function getSystemEnv ($var) {
     [Environment]::GetEnvironmentVariable($var, "machine")
-}
-
-function addToClasspath ($jarfile) {
-   ''
-   'Setting the user CLASSPATH environment variable to include'
-    blue "$jarfile"
-    $matcher = [regex]::escape($jarfile);
-    if (!((getUserEnv "classpath") -match "$matcher")) {
-        $new_classpath = $jarfile + ";" + (getUserEnv "classpath")
-        setEnv "classpath" $new_classpath
-    }
 }
 
 function addToPath ($directory) {
@@ -225,11 +215,6 @@ if (!(getUserEnv "path")) {
 } else {
     setEnv "path" (getUserEnv "path")
 }
-if (!(getUserEnv "classpath")) {
-    setEnv "classpath" (getSystemEnv "classpath")
-} else {
-    setEnv "classpath" (getUserEnv "classpath")
-}
 
 createFolderIfNeeded "$install" "installation"
 
@@ -298,9 +283,6 @@ addToPath "$j3dBin"
 $vecmath  = "$j3d" + "\lib\ext\vecmath.jar";
 $j3dcore  = "$j3d" + "\lib\ext\j3dcore.jar";
 $j3dutils = "$j3d" + "\lib\ext\j3dutils.jar";
-#addToClasspath "$vecmath"
-#addToClasspath "$j3dcore"
-#addToClasspath "$j3dutils"
 
 ''
 red '#### Step 3 - Textbook Libraries ###################################'
@@ -313,9 +295,6 @@ download "$stdlibURL" "$stdlib" "stdlib.jar"
 
 # $algs4URL = "http://algs4.cs.princeton.edu/code/algs4.jar";
 # download "$algs4URL" "$algs4" "algs4.jar"
-
-# addToClasspath "$stdlib"
-# addToClasspath "$algs4"
 
 ''
 red '#### Step 4 - Checkstyle ###########################################'
@@ -334,12 +313,12 @@ $checkstyleXML = "$checkstyle" + "\checkstyle.xml"
 $checkstyleXMLURL = "$url_base" + "checkstyle.xml"
 download "$checkstyleXMLURL" "$checkstyleXML" "checkstyle configuration file"
 
-$checkstyleCMD = "$bin" + "\checkstyle.bat"
-$checkstyleCMDURL = "$url_base" + "checkstyle.bat"
+$checkstyleCMD = "$bin" + "\checkstyle-" + ${install_directory} + ".bat"
+$checkstyleCMDURL = "$url_base" + "checkstyle-" + ${install_directory} + ".bat"
 download "$checkstyleCMDURL" "$checkstyleCMD" "checkstyle execution script"
 
-$checkstylePS1 = "$bin" + "\checkstyle.ps1"
-$checkstylePS1URL = "$url_base" + "checkstyle.ps1"
+$checkstylePS1 = "$bin" + "\checkstyle-" + ${install_directory} + ".ps1"
+$checkstylePS1URL = "$url_base" + "checkstyle-" + ${install_directory} + ".ps1"
 download "$checkstylePS1URL" "$checkstylePS1" "checkstyle wrapper script"
 
 addToPath "$bin"
@@ -361,12 +340,12 @@ $findbugsXML = "$findbugs" + "\findbugs.xml"
 $findbugsXMLURL = "$url_base" + "findbugs.xml"
 download "$findbugsXMLURL" "$findbugsXML" "findbugs configuration file"
 
-$findbugsCMD = "$bin" + "\findbugs.bat"
-$findbugsCMDURL = "$url_base" + "findbugs.bat"
+$findbugsCMD = "$bin" + "\findbugs-" + ${install_directory} + ".bat"
+$findbugsCMDURL = "$url_base" + "findbugs-" + ${install_directory} + ".bat"
 download "$findbugsCMDURL" "$findbugsCMD" "findbugs execution script"
 
-$findbugsPS1 = "$bin" + "\findbugs.ps1"
-$findbugsPS1URL = "$url_base" + "findbugs.ps1"
+$findbugsPS1 = "$bin" + "\findbugs-" + ${install_directory} + ".ps1"
+$findbugsPS1URL = "$url_base" + "findbugs-" + ${install_directory} + ".ps1"
 download "$findbugsPS1URL" "$findbugsPS1" "findbugs wrapper script"
 
 addToPath "$bin"
@@ -445,13 +424,6 @@ $link = (New-Object -ComObject WScript.Shell).CreateShortcut("$shortcut")
 $link.TargetPath = "$env:ComSpec"
 $link.Save()
 
-# Adds the . directory for the classpath
-$matcher = [regex]::escape('.;');
-if (!((getUserEnv "classpath") -match "$matcher")) {
-    $new_classpath = '.;' + (getUserEnv "classpath")
-    setEnv "classpath" $new_classpath
-}
-
 ''
 red '#### Step 8 - Test it out! #########################################'
 
@@ -467,10 +439,10 @@ download "$coverURL" "$cover" "textbook cover image" -quiet
 
 ''
 'Compiling test Java program...'
-javac "${testFile}.java"
+& javac-${install_directory} "${testFile}.java"
 
 'Test program compiled. Running...'
-java "${testFile}"
+& java-${install_directory} "${testFile}"
 
 remove-item "${testFile}.class"
 remove-item "${testFile}.java"
