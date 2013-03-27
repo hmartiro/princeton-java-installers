@@ -189,6 +189,24 @@ else
 	exit
 fi
 
+javaCMD="${bin}/java-${name}"
+javaCMDURL="${url_base}/java-${name}"
+download "$javaCMDURL" "$javaCMD" "java execution script"
+
+print
+print "Granting executable permission to"
+blue "${javaCMD}"
+chmod +x "$javaCMD"
+
+javacCMD="${bin}/javac-${name}"
+javacCMDURL="${url_base}/javac-${name}"
+download "$javacCMDURL" "$javacCMD" "javac execution script"
+
+print
+print "Granting executable permission to"
+blue "${javacCMD}"
+chmod +x "$javacCMD"
+
 #print
 #red '#### Step 2 - Java3D and Java OpenGL ###############################'
 
@@ -257,8 +275,8 @@ checkstyleXML="${checkstyle}/checkstyle.xml"
 checkstyleXMLURL="${url_base}/checkstyle.xml"
 download "$checkstyleXMLURL" "$checkstyleXML" "checkstyle configuration file"
 
-checkstyleCMD="${bin}/checkstyle"
-checkstyleCMDURL="${url_base}/checkstyle"
+checkstyleCMD="${bin}/checkstyle-${name}"
+checkstyleCMDURL="${url_base}/checkstyle-${name}"
 download "$checkstyleCMDURL" "$checkstyleCMD" "checkstyle execution script"
 
 print
@@ -283,8 +301,8 @@ findbugsXML="${findbugs}/findbugs.xml"
 findbugsXMLURL="${url_base}/findbugs.xml"
 download "$findbugsXMLURL" "$findbugsXML" "findbugs configuration file"
 
-findbugsCMD="${bin}/findbugs"
-findbugsCMDURL="${url_base}/findbugs"
+findbugsCMD="${bin}/findbugs-${name}"
+findbugsCMDURL="${url_base}/findbugs-${name}"
 download "$findbugsCMDURL" "$findbugsCMD" "findbugs execution script"
 
 print
@@ -345,10 +363,10 @@ cd "$myDir"
 
 print
 print 'Installation complete! Compiling test program...'
-javac ${testFile}.java
+javac-${name} ${testFile}.java
 
 print 'Test program compiled. Running...'
-java ${testFile}
+java-${name} ${testFile}
 
 rm -f "${testFile}.class"
 rm -f "${testFile}.java"

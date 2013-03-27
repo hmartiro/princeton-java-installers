@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # *************************************************
-# checkstyle.sh (algs4)
+# checkstyle-algs4
 # Hayk Martirosyan
 # -------------------
 # Easy-to-understand wrapper for using checkstyle.
@@ -12,9 +12,6 @@ CHECKSTYLE=checkstyle-?.?
 
 # This must match the install directory
 INSTALL=~/algs4
-
-# This is the bin directory
-BIN=bin
 
 # Sets the paths to arrays of matching checkstyle jar and xml files
 jar=(${INSTALL}/${CHECKSTYLE}/${CHECKSTYLE}-all.jar)

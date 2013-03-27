@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # *************************************************
-# checkstyle.sh (introcs)
+# checkstyle-introcs
 # Hayk Martirosyan
 # -------------------
 # Easy-to-understand wrapper for using checkstyle.
@@ -12,9 +12,6 @@ CHECKSTYLE=checkstyle-?.?
 
 # This must match the install directory
 INSTALL=~/introcs
-
-# This is the bin directory
-BIN=bin
 
 # Sets the paths to arrays of matching checkstyle jar and xml files
 jar=(${INSTALL}/${CHECKSTYLE}/${CHECKSTYLE}-all.jar)
