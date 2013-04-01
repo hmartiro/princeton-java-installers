@@ -226,11 +226,11 @@ download "$java3dURL" "$java3dZip" "Java3D"
 extractAndDelete "$java3dZip"
 
 print
-print "Copying all libraries in"
+print "Copying jni files from"
 blue "${java3d}"
 print "to"
 blue "${extensions}"
-cp -R ${java3d}/* "${extensions}"
+cp -R ${java3d}/*.jnilib "${extensions}"
 
 print
 red '#### Step 3 - Textbook Libraries ##################################'
@@ -240,12 +240,12 @@ stdlib="${install}/stdlib.jar"
 stdlibURL="http://introcs.cs.princeton.edu/java/stdlib/stdlib.jar"
 download "$stdlibURL" "$stdlib" "stdlib.jar"
 
-print
-print "Copying library from"
-blue "${stdlib}"
-print "to"
-blue "${extensions}"
-cp ${stdlib} ${extensions}
+#print
+#print "Copying library from"
+#blue "${stdlib}"
+#print "to"
+#blue "${extensions}"
+#cp ${stdlib} ${extensions}
 
 print
 red '#### Step 4 - Checkstyle ##########################################'

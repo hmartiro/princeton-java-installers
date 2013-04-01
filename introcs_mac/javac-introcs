@@ -11,6 +11,6 @@
 INSTALL=~/introcs
 
 # Sets the path to the classpath libraries
-jars=(${INSTALL}/stdlib.jar:${INSTALL}/java3d/j3dcore.jar:${INSTALL}/java3d/j3dutils.jar:${INSTALL}/java3d/vecmath.jar:${INSTALL}/java3d/gluegen-rt.jar:${INSTALL}/java3d/jogl.jar)
+jars=(${INSTALL}/stdlib.jar:${INSTALL}/java3d/j3dcore.jar:${INSTALL}/java3d/j3dutils.jar:${INSTALL}/java3d/vecmath.jar:${INSTALL}/java3d/gluegen-rt.jar:${INSTALL}/java3d/jogl.jar:.)
 
 javac -cp "$jars" "$@"

@@ -226,11 +226,11 @@ download "$java3dURL" "$java3dZip" "Java3D"
 extractAndDelete "$java3dZip"
 
 print
-print "Copying all libraries in"
+print "Copying jni files from"
 blue "${java3d}"
 print "to"
 blue "${extensions}"
-cp -R ${java3d}/* "${extensions}"
+cp -R ${java3d}/*.jnilib "${extensions}"
 SKIP3D
 print
 red '#### Step 2 - Textbook Libraries ##################################'
@@ -241,22 +241,22 @@ algs4="${install}/algs4.jar"
 stdlibURL="http://introcs.cs.princeton.edu/java/stdlib/stdlib.jar"
 download "$stdlibURL" "$stdlib" "stdlib.jar"
 
-print
-print "Copying library from"
-blue "${stdlib}"
-print "to"
-blue "${extensions}"
-cp ${stdlib} ${extensions}
+#print
+#print "Copying library from"
+#blue "${stdlib}"
+#print "to"
+#blue "${extensions}"
+#cp ${stdlib} ${extensions}
 
 algs4URL="http://algs4.cs.princeton.edu/code/algs4.jar"
 download "$algs4URL" "$algs4" "algs4.jar"
 
-print
-print "Copying library from"
-blue "${algs4}"
-print "to"
-blue "${extensions}"
-cp ${algs4} ${extensions}
+#print
+#print "Copying library from"
+#blue "${algs4}"
+#print "to"
+#blue "${extensions}"
+#cp ${algs4} ${extensions}
 
 print
 red '#### Step 3 - Checkstyle ##########################################'
