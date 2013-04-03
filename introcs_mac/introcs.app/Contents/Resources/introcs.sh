@@ -7,7 +7,7 @@
 # Mac OS X installation script for introcs.app 
 # ************************************************
 
-# The only difference between algs4 and introcs installations are these
+# The differences between algs4 and introcs installations are these
 # three variables, the commenting out of Java3D, the inclusion of 
 # algs4.jar and renumbering steps
 name=introcs
@@ -62,7 +62,7 @@ green '#                                                                  #'
 green '####################################################################'
 green '#                                                                  #'
 green '# Java Programming Environment Setup                               #'
-green '# for Mac OS X - v3.2                                              #'
+green '# for Mac OS X - v3.5                                              #'
 green '# Princeton University - Hayk Martirosyan                          #'
 green '#                                                                  #'
 green '####################################################################'
